@@ -1,0 +1,32 @@
+#include <tunables/global>
+
+/usr/bin/weechat {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/aspell>
+  #include <abstractions/bash>
+  #include <abstractions/perl>
+  #include <abstractions/python>
+  #include <abstractions/ssl_certs>
+
+  /usr/bin/weechat mr,
+
+  # Plugins and scripts
+  /usr/lib*/weechat/plugins/** rm,
+  /usr/share/weechat/** r,
+
+  # Locales
+  /usr/share/locale/** r,
+
+  # Python plugins
+  /usr/lib/python2.7 r,
+
+  # abstractions don't seem to work
+  /etc/ca-certificates/extracted/tls-ca-bundle.pem r,
+
+  # Configuration files and logs
+  owner @{HOME}/ r,
+  owner @{HOME}/.weechat/ rw,
+  owner @{HOME}/.weechat/** rw,
+  owner @{HOME}/.weechat/weechat.log rwk,
+}
