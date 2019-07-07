@@ -1,0 +1,35 @@
+#include <tunables/global>
+
+/usr/bin/houndd {
+  #include <abstractions/base>
+
+  /usr/bin/houndd mr,
+
+  # Git access
+  /usr/bin/git rix,
+  /usr/lib/git-core/git-remote-https rix,
+  /usr/lib/git-core/git rix,
+
+  # Git required files
+  /etc/passwd r,
+  /etc/ssl/openssl.cnf r,
+  /etc/nsswitch.conf r,
+  /etc/host.conf r,
+  /etc/gai.conf r,
+  /etc/hosts r,
+  /etc/resolv.conf r,
+
+  # /proc
+  /proc/sys/net/core/somaxconn r,
+
+  # ssl
+  /etc/ssl/certs/ca-certificates.crt r,
+  /etc/ca-certificates/extracted/tls-ca-bundle.pem r,
+
+  # hound config file
+  /etc/hound-config.json r,
+
+  # hound data directory
+  /var/lib/hound/ r,
+  /var/lib/hound/** rw,
+}
