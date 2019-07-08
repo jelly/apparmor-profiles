@@ -10,6 +10,16 @@
   /usr/lib/git-core/git-remote-https rix,
   /usr/lib/git-core/git rix,
 
+  # hound config file
+  /etc/hound-config.json r,
+
+  # hound data directory
+  /var/lib/hound/ r,
+  owner /var/lib/hound/** rwl,
+
+  # houd tmp dir
+  /tmp/csearch* rw,
+
   # Git required files
   /etc/passwd r,
   /etc/ssl/openssl.cnf r,
@@ -25,11 +35,4 @@
   # ssl
   /etc/ssl/certs/ca-certificates.crt r,
   /etc/ca-certificates/extracted/tls-ca-bundle.pem r,
-
-  # hound config file
-  /etc/hound-config.json r,
-
-  # hound data directory
-  /var/lib/hound/ r,
-  /var/lib/hound/** rw,
 }
