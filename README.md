@@ -7,3 +7,4 @@ This repo contains apparmor profiles for Arch Linux and which are not available 
 * usr.bin.weechat - weechat apparmor profile
 * usr.bin.houndd - hound daemon
 * usr.bin.prometheus-node-exporter - prometheus-node-exporter daemon
+* usr.bin.taskd - taskwarrior daemon
