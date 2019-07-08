@@ -5,3 +5,4 @@ This repo contains apparmor profiles for Arch Linux and which are not available 
 # Supported profiles
 
 * usr.bin.weechat - weechat apparmor profile
+* usr.bin.houndd - hound daemon
