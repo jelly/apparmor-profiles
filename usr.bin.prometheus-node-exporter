@@ -1,0 +1,12 @@
+#include <tunables/global>
+
+/usr/bin/prometheus-node-exporter {
+  #include <abstractions/base>
+
+  /usr/bin/prometheus-node-exporter mr,
+
+  # Allow reading performance data
+  /proc/** r,
+  /sys/** r,
+  /sys/**/ r,
+}
