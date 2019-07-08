@@ -1,0 +1,41 @@
+#include <tunables/global>
+
+/usr/bin/nginx {
+  #include <abstractions/apache2-common>
+  #include <abstractions/base>
+  #include <abstractions/nis>
+  #include <abstractions/openssl>
+  #include <abstractions/ssl_keys>
+  
+  capability dac_override,
+  capability dac_read_search,
+  capability net_bind_service,
+  capability setgid,
+  capability setuid,
+  
+  # system files for baseauth and more.
+  /etc/group r,
+  /etc/nsswitch.conf r, 
+  /etc/passwd r,
+
+  # binary, pid
+  /usr/bin/nginx mr,
+  /run/nginx.pid rw,
+
+  # configuration
+  /etc/nginx/mime.types r,
+  /etc/nginx/nginx.conf r,
+  /etc/nginx/nginx.d/* r, 
+  /etc/nginx/snippets/* r,
+  owner /etc/nginx/nginx.d/ r,
+  owner /etc/nginx/snippets/ r,
+
+  # webroot
+  /srv/** r,
+  
+  # logs
+  /var/log/nginx/* w,
+
+  # letsencrypt
+  /etc/letsencrypt/live/** r,
+}
