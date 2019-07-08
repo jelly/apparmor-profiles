@@ -4,7 +4,10 @@ This repo contains apparmor profiles for Arch Linux and which are not available 
 
 # Supported profiles
 
-* usr.bin.weechat - weechat apparmor profile
-* usr.bin.houndd - hound daemon
-* usr.bin.prometheus-node-exporter - prometheus-node-exporter daemon
-* usr.bin.taskd - taskwarrior daemon
+| Profile                           | Program description              | Notes                                     |
+| ----------------------------------|----------------------------------|-------------------------------------------|
+| usr.bin.weechat                   | weechat apparmor profile         | /exec is disallowed, not all plugins work |
+| usr.bin.houndd                    | hound daemon                     | none                                      |
+| usr.bin.prometheus-node-exporter  | prometheus-node-exporter daemon  | none                                      |
+| usr.bin.taskd                     | taskwarrior daemon               | none                                      |
+| usr.bin.nginx                     | nginx webserver                  | webroot is defined as /srv/               |
