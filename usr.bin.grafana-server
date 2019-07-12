@@ -1,0 +1,25 @@
+#include <tunables/global>
+
+/usr/bin/grafana-server {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/ssl_keys>
+
+  # system	
+  /proc/sys/net/core/somaxconn r,
+  /etc/ca-certificates/** r,
+
+  /usr/bin/grafana-server mr,
+
+  /usr/share/grafana/** r,
+  /var/lib/grafana/** r,
+  /var/lib/grafana/**/ r,
+
+  owner /etc/grafana.ini r,
+  owner /var/lib/grafana/ r,
+  owner /var/lib/grafana/*/ r,
+  owner /var/lib/grafana/grafana.db rwk,
+  owner /var/lib/grafana/grafana.db-journal rwk,
+  owner /var/log/grafana/grafana.log rw,
+
+}
