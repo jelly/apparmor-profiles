@@ -38,4 +38,10 @@
 
   # letsencrypt
   /etc/letsencrypt/live/** r,
+
+  # letsencrypt renew dir
+  /var/lib/letsencrypt/ r,
+  /var/lib/letsencrypt/.well-known r,
+  /var/lib/letsencrypt/.well-known/* r,
+  /var/lib/letsencrypt/.well-known/acme-challenge/* r,
 }
