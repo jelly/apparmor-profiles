@@ -1,0 +1,32 @@
+#include <tunables/global>
+
+/usr/bin/transmission-daemon {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+  #include <abstractions/openssl>
+  #include <abstractions/ubuntu-browsers.d/user-files>
+
+  /proc/*/net/route r,
+  owner /proc/*/mounts r,
+  /proc/sys/kernel/random/uuid r,
+
+  /usr/bin/transmission-daemon mr,
+
+  /usr/share/transmission/web/* r,
+  /usr/share/transmission/web/images/* r,
+  /usr/share/transmission/web/style/jqueryui/images/* r,
+  /usr/share/transmission/web/style/transmission/images/* r,
+
+  owner /home/*/.config/transmission-daemon/* rw,
+  owner /home/*/.config/transmission-daemon/blocklists/ r,
+  owner /home/*/.config/transmission-daemon/resume/* rw,
+  owner /home/*/.config/transmission-daemon/settings.json rw,
+  owner /home/*/.config/transmission-daemon/settings.json.tmp.* rwlk,
+  owner /home/*/.config/transmission-daemon/stats.json r,
+  owner /home/*/.config/transmission-daemon/torrents/ r,
+  owner /home/*/.config/transmission-daemon/torrents/* rw,
+
+  # Custom download directory
+  owner /mnt/download/* rwlk,
+  owner /mnt/download/**/* rwlk,
+}
