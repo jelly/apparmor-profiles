@@ -13,3 +13,4 @@ This repo contains apparmor profiles for Arch Linux and which are not available 
 | usr.bin.nginx                     | nginx webserver                  | webroot is defined as /srv/               |
 | usr.bin.zathura                   | zathura pdf viewer               | whole $HOME is readable                   |
 | usr.bin.grafana-server            | grafana server                   | none                                      |
+| usr.bin.transmission-daemon       | transmission                     | /mnt/download as download directory       |
