@@ -21,5 +21,6 @@
   owner /var/lib/grafana/grafana.db rwk,
   owner /var/lib/grafana/grafana.db-journal rwk,
   owner /var/log/grafana/grafana.log rw,
+  owner /var/log/grafana/grafana.log.* rw,
 
 }
