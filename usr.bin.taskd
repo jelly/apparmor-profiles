@@ -1,15 +1,24 @@
-#include <tunables/global>
+include <tunables/global>
 
 /usr/bin/taskd {
-  #include <abstractions/base>
-  #include <abstractions/p11-kit>
-  #include <abstractions/ssl_certs>
-  #include <abstractions/user-tmp>
+  include <abstractions/base>
+  include <abstractions/p11-kit>
+  include <abstractions/ssl_certs>
+  include <abstractions/user-tmp>
+
+  capability dac_override,
+  capability dac_read_search,
 
   deny /etc/ca-certificates/trust-source/ r,
   deny /etc/ca-certificates/trust-source/anchors/ r,
   deny /etc/ca-certificates/trust-source/blacklist/ r,
 
+  /etc/host.conf r,
+  /etc/hosts r,
+  /etc/nsswitch.conf r,
+  /etc/resolv.conf r,
   /usr/bin/taskd mr,
   owner /var/lib/taskd/** rw,
+  owner /var/log/taskd.log w,
+
 }
